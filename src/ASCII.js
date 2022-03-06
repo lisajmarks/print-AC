@@ -1,9 +1,4 @@
-import React from 'react'
-
-
-export const ASCII = () => {
-
-  const getStringA = (height) => {
+  export const getStringA = (height) => {
     const width = Math.max(1, Math.floor(height / 4))
     const lineLength = height * 2
     const linesArray = []
@@ -38,8 +33,8 @@ export const ASCII = () => {
     return linesArray.reverse()
   }
 
-  const getStringC = (height) => {
-    if (height <= 1) {
+ export const getStringC = (height) => {
+    if (height == 1) {
       return ["C"]
     }
     const width = Math.max(1, Math.floor(height / 4))
@@ -84,18 +79,12 @@ export const ASCII = () => {
     return topLines.reverse().concat(middleLines, bottomLines)
   }
 
-  const height = 3
-  const lines = getStringA(height)
-  // return ( 0 .125 .25 .375 .5 .625 .75 .875 1
-  //   <div>{ for(let i=0; i< lines.length; i++) {
-  //     console.log('s')
-  //   }}</div>
-  //   )
-  return (
-    <div>
-      {lines.map((line, i) => (
-        <div>{line.replace(/ /g, "\u00a0")}</div>
-      ))}
-    </div>
-  );
-}
+// export const getStringAC = (height) => {
+//   const a = getStringA(height)
+//   const c = getStringC(height)
+//   const ac = []
+//   for (let i=0; i< height; i++) {
+//     ac.push(a[i] + "   " + c[i])
+//   }
+//   return ac
+// }
