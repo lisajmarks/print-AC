@@ -1,23 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react"
+import { ASCII } from "./ASCII";
+import "./styles.css";
 
 function App() {
+  const [height, setHeight] = useState(1)
+
+  const handleChange = event => {
+    setHeight(event.target.value)
+  }
+
+  const handleSubmit = event => {
+    event.preventDefault(); 
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>AC ASCII Display</h1>
+      <h3>What height would you like?</h3>
+      <form onSubmit={handleSubmit}>
+          <label> Enter height: </label> 
+            <input type="number" onChange={handleChange} defaultValue={height}/>
+          <button type="submit">
+            Submit
+          </button>
+      </form>
+      <h1>Output height = {height}</h1>
+      <ASCII></ASCII>
     </div>
   );
 }
