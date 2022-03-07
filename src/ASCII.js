@@ -36,7 +36,7 @@
   }
 
  export const getStringC = (height) => {
-    if (height === 1) {
+    if (height == 1) {
       return ["C"]
     }
     const width = Math.max(1, Math.floor(height / 4))
