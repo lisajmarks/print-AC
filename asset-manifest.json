@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/printAC/static/css/main.b772c4bd.css",
+    "main.js": "/printAC/static/js/main.bc9f0d67.js",
+    "index.html": "/printAC/index.html",
+    "main.b772c4bd.css.map": "/printAC/static/css/main.b772c4bd.css.map",
+    "main.bc9f0d67.js.map": "/printAC/static/js/main.bc9f0d67.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.b772c4bd.css",
+    "static/js/main.bc9f0d67.js"
+  ]
+}
