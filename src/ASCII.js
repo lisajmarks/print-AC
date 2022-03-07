@@ -6,8 +6,9 @@
     let rightPoint = lineLength - 1
     const lineOfAllSpaces = " ".repeat(lineLength)
     const unitOfA = "A".repeat(width)
-
+    let numTopLines = -1
     let numMiddleLines = 0;
+
     for (let i = 0; i < height; i++) {
       if (leftPoint > rightPoint) {
         break
@@ -16,8 +17,9 @@
       const middleSpaces = numMiddleSpaces <= 0 ? "" : " ".repeat(numMiddleSpaces)
       let middleString = unitOfA + middleSpaces + unitOfA
   
-      if (numMiddleSpaces <=0) {
-        middleString = " ".repeat(unitOfA.length/2) + unitOfA + " ".repeat(unitOfA.length/2)
+      if (numMiddleSpaces <= 0 ) {
+        middleString = middleString.slice(0, numTopLines)
+        numTopLines--
       }
       else if (i/height >= .375 && i/height <= .5) {
         middleString = middleString.replace(/ /g, "A").slice(0, numMiddleLines - 1.5 * unitOfA.length)
@@ -34,7 +36,7 @@
   }
 
  export const getStringC = (height) => {
-    if (height == 1) {
+    if (height === 1) {
       return ["C"]
     }
     const width = Math.max(1, Math.floor(height / 4))
@@ -49,12 +51,12 @@
     let topLines = []
     const lines = []
     const lineOfAllSpaces = " ".repeat(lineLength)
+
     if (unitOfC.length % 2 == 0) {
       topLeftPoint--
       bottomLeftPoint--
     }
     for (let i = 0; i < height; i++) {
-      console.log(`${i} / ${height} === ${i/height}`)
       let line = ''
       if (i/height <= .125) {
         line = lineOfAllSpaces.substring(0, topLeftPoint) + "C".repeat(topRightPoint - topLeftPoint) + lineOfAllSpaces.substring(topRightPoint, lineLength - 1)
@@ -71,20 +73,9 @@
         line = unitOfC
         middleLines.push(line)
       }
-      console.log(line)
       lines.push(line)
 
     }
 
     return topLines.reverse().concat(middleLines, bottomLines)
   }
-
-// export const getStringAC = (height) => {
-//   const a = getStringA(height)
-//   const c = getStringC(height)
-//   const ac = []
-//   for (let i=0; i< height; i++) {
-//     ac.push(a[i] + "   " + c[i])
-//   }
-//   return ac
-// }
